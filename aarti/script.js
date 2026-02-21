@@ -88,7 +88,8 @@ function showDeityPage(key) {
   // Build tabs
   const tabs = document.getElementById('deityTabs');
   tabs.innerHTML = `
-  <button class="tab-btn active" onclick="showTab('aarti', this)">🪔 आरती</button>
+  <button class="tab-btn active" onclick="showTab('about', this)">🚩 परिचय</button>
+  <button class="tab-btn" onclick="showTab('aarti', this)">🪔 आरती</button>
   <button class="tab-btn" onclick="showTab('chalisa', this)">📖 चालीसा</button>
   <button class="tab-btn" onclick="showTab('mantra', this)">🕉️ मंत्र</button>`;
 
@@ -116,7 +117,10 @@ function showDeityPage(key) {
   const content = document.getElementById('deityContent');
   if (!content) return;
   content.innerHTML = `
-  <div id="tab-aarti" class="text-content active">
+  <div id="tab-about" class="text-content active">
+    <div class="lyrics-box about-content">${deity.about || 'विवरण जल्द ही आ रहा है...'}</div>
+  </div>
+  <div id="tab-aarti" class="text-content">
     <div class="lyrics-box">${deity.aarti}</div>
   </div>
   <div id="tab-chalisa" class="text-content">
