@@ -1,220 +1,131 @@
 <!doctype html>
 <html lang="hi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>आरती संग्रह - Divine Devotion</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&family=Cinzel+Decorative:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
 
-  <body>
-    <!-- Loader -->
-    <div class="loader" id="loader">
-      <div class="loader-om">🕉️</div>
-      <div class="loader-text">आरती संग्रह में आपका स्वागत है...</div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>आरती संग्रह - Divine Devotion</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&family=Cinzel+Decorative:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- Loader -->
+  <div class="loader" id="loader">
+    <div class="loader-om">🕉️</div>
+    <div class="loader-text">आरती संग्रह में आपका स्वागत है...</div>
+  </div>
+
+  <!-- Mandala SVG -->
+  <svg class="mandala-bg" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="200" cy="200" r="190" stroke="#D4AF37" stroke-width="1" />
+    <circle cx="200" cy="200" r="160" stroke="#D4AF37" stroke-width="0.5" />
+    <circle cx="200" cy="200" r="130" stroke="#FF6B00" stroke-width="0.5" />
+    <circle cx="200" cy="200" r="100" stroke="#D4AF37" stroke-width="1" />
+    <circle cx="200" cy="200" r="70" stroke="#D4AF37" stroke-width="0.5" />
+    <circle cx="200" cy="200" r="40" stroke="#FF6B00" stroke-width="1" />
+    <line x1="10" y1="200" x2="390" y2="200" stroke="#D4AF37" stroke-width="0.5" />
+    <line x1="200" y1="10" x2="200" y2="390" stroke="#D4AF37" stroke-width="0.5" />
+    <line x1="55" y1="55" x2="345" y2="345" stroke="#D4AF37" stroke-width="0.3" />
+    <line x1="345" y1="55" x2="55" y2="345" stroke="#D4AF37" stroke-width="0.3" />
+    <polygon points="200,20 230,180 380,200 230,220 200,380 170,220 20,200 170,180" stroke="#FF6B00" stroke-width="0.5"
+      fill="none" />
+    <polygon points="200,50 225,175 350,200 225,225 200,350 175,225 50,200 175,175" stroke="#D4AF37" stroke-width="0.3"
+      fill="none" />
+  </svg>
+
+  <!-- Floating particles -->
+  <div id="particles"></div>
+
+  <header>
+    <span class="om-symbol">🕉️</span>
+    <h1>Divine Aarti Sangrah</h1>
+    <p>॥ श्री देवी-देवताओं की आरती, चालीसा और मंत्र संग्रह ॥</p>
+    <div class="header-divider">
+      <div class="divider-line"></div>
+      <div class="divider-dot"></div>
+      <div class="divider-dot" style="background: var(--gold)"></div>
+      <div class="divider-dot"></div>
+      <div class="divider-line"></div>
+    </div>
+  </header>
+
+  <nav id="mainNav">
+    <div class="nav-inner">
+      <button class="nav-btn active" onclick="showPage('home')" data-page="home">
+        🏠 मुख्य पृष्ठ
+      </button>
+      <button class="nav-btn" onclick="showDeityPage('ganesh')" data-page="ganesh">
+        🐘 श्री गणेश
+      </button>
+      <button class="nav-btn" onclick="showDeityPage('shiva')" data-page="shiva">
+        🔱 श्री शिव
+      </button>
+      <button class="nav-btn" onclick="showDeityPage('durga')" data-page="durga">
+        🌸 श्री दुर्गा
+      </button>
+      <button class="nav-btn" onclick="showDeityPage('lakshmi')" data-page="lakshmi">
+        🪷 श्री लक्ष्मी
+      </button>
+      <button class="nav-btn" onclick="showDeityPage('saraswati')" data-page="saraswati">
+        🎵 श्री सरस्वती
+      </button>
+      <button class="nav-btn" onclick="showDeityPage('vishnu')" data-page="vishnu">
+        ✨ श्री विष्णु
+      </button>
+      <button class="nav-btn" onclick="showDeityPage('ram')" data-page="ram">
+        🏹 श्री राम
+      </button>
+      <button class="nav-btn" onclick="showDeityPage('krishna')" data-page="krishna">
+        🪈 श्री कृष्ण
+      </button>
+      <button class="nav-btn" onclick="showDeityPage('hanuman')" data-page="hanuman">
+        🙏 श्री हनुमान
+      </button>
+      <button class="nav-btn" onclick="showDeityPage('surya')" data-page="surya">
+        ☀️ श्री सूर्य
+      </button>
+      <button class="nav-btn" onclick="showDeityPage('kali')" data-page="kali">
+        ⚡ श्री काली
+      </button>
+    </div>
+  </nav>
+
+  <div class="main-container">
+    <!-- HOME PAGE -->
+    <div id="page-home" class="page active">
+      <div class="section-title">
+        <span class="diya">🪔</span> देव-देवी संग्रह
+      </div>
+      <div class="section-subtitle">
+        किसी भी देवता का नाम चुनें और उनकी आरती, चालीसा व मंत्र पढ़ें
+      </div>
+      <div class="home-grid" id="homeGrid"></div>
     </div>
 
-    <!-- Mandala SVG -->
-    <svg
-      class="mandala-bg"
-      viewBox="0 0 400 400"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <circle cx="200" cy="200" r="190" stroke="#D4AF37" stroke-width="1" />
-      <circle cx="200" cy="200" r="160" stroke="#D4AF37" stroke-width="0.5" />
-      <circle cx="200" cy="200" r="130" stroke="#FF6B00" stroke-width="0.5" />
-      <circle cx="200" cy="200" r="100" stroke="#D4AF37" stroke-width="1" />
-      <circle cx="200" cy="200" r="70" stroke="#D4AF37" stroke-width="0.5" />
-      <circle cx="200" cy="200" r="40" stroke="#FF6B00" stroke-width="1" />
-      <line
-        x1="10"
-        y1="200"
-        x2="390"
-        y2="200"
-        stroke="#D4AF37"
-        stroke-width="0.5"
-      />
-      <line
-        x1="200"
-        y1="10"
-        x2="200"
-        y2="390"
-        stroke="#D4AF37"
-        stroke-width="0.5"
-      />
-      <line
-        x1="55"
-        y1="55"
-        x2="345"
-        y2="345"
-        stroke="#D4AF37"
-        stroke-width="0.3"
-      />
-      <line
-        x1="345"
-        y1="55"
-        x2="55"
-        y2="345"
-        stroke="#D4AF37"
-        stroke-width="0.3"
-      />
-      <polygon
-        points="200,20 230,180 380,200 230,220 200,380 170,220 20,200 170,180"
-        stroke="#FF6B00"
-        stroke-width="0.5"
-        fill="none"
-      />
-      <polygon
-        points="200,50 225,175 350,200 225,225 200,350 175,225 50,200 175,175"
-        stroke="#D4AF37"
-        stroke-width="0.3"
-        fill="none"
-      />
-    </svg>
-
-    <!-- Floating particles -->
-    <div id="particles"></div>
-
-    <header>
-      <span class="om-symbol">🕉️</span>
-      <h1>Divine Aarti Sangrah</h1>
-      <p>॥ श्री देवी-देवताओं की आरती और चालीसा संग्रह ॥</p>
-      <div class="header-divider">
-        <div class="divider-line"></div>
-        <div class="divider-dot"></div>
-        <div class="divider-dot" style="background: var(--gold)"></div>
-        <div class="divider-dot"></div>
-        <div class="divider-line"></div>
-      </div>
-    </header>
-
-    <nav id="mainNav">
-      <div class="nav-inner">
-        <button
-          class="nav-btn active"
-          onclick="showPage('home')"
-          data-page="home"
-        >
-          🏠 मुख्य पृष्ठ
-        </button>
-        <button
-          class="nav-btn"
-          onclick="showDeityPage('ganesh')"
-          data-page="ganesh"
-        >
-          🐘 श्री गणेश
-        </button>
-        <button
-          class="nav-btn"
-          onclick="showDeityPage('shiva')"
-          data-page="shiva"
-        >
-          🔱 श्री शिव
-        </button>
-        <button
-          class="nav-btn"
-          onclick="showDeityPage('durga')"
-          data-page="durga"
-        >
-          🌸 श्री दुर्गा
-        </button>
-        <button
-          class="nav-btn"
-          onclick="showDeityPage('lakshmi')"
-          data-page="lakshmi"
-        >
-          🪷 श्री लक्ष्मी
-        </button>
-        <button
-          class="nav-btn"
-          onclick="showDeityPage('saraswati')"
-          data-page="saraswati"
-        >
-          🎵 श्री सरस्वती
-        </button>
-        <button
-          class="nav-btn"
-          onclick="showDeityPage('vishnu')"
-          data-page="vishnu"
-        >
-          ✨ श्री विष्णु
-        </button>
-        <button class="nav-btn" onclick="showDeityPage('ram')" data-page="ram">
-          🏹 श्री राम
-        </button>
-        <button
-          class="nav-btn"
-          onclick="showDeityPage('krishna')"
-          data-page="krishna"
-        >
-          🪈 श्री कृष्ण
-        </button>
-        <button
-          class="nav-btn"
-          onclick="showDeityPage('hanuman')"
-          data-page="hanuman"
-        >
-          🙏 श्री हनुमान
-        </button>
-        <button
-          class="nav-btn"
-          onclick="showDeityPage('surya')"
-          data-page="surya"
-        >
-          ☀️ श्री सूर्य
-        </button>
-        <button
-          class="nav-btn"
-          onclick="showDeityPage('kali')"
-          data-page="kali"
-        >
-          ⚡ श्री काली
-        </button>
-      </div>
-    </nav>
-
-    <div class="main-container">
-      <!-- HOME PAGE -->
-      <div id="page-home" class="page active">
-        <div class="section-title">
-          <span class="diya">🪔</span> देव-देवी संग्रह
-        </div>
-        <div class="section-subtitle">
-          किसी भी देवता का नाम चुनें और उनकी आरती, चालीसा व मंत्र पढ़ें
-        </div>
-        <div class="home-grid" id="homeGrid"></div>
-      </div>
-
-      <!-- DEITY PAGES (generated dynamically) -->
-      <div id="page-deity" class="page">
-        <button class="back-btn" onclick="showPage('home')">← वापस जाएं</button>
-        <div class="content-header" id="deityHeader"></div>
-        <div class="tabs" id="deityTabs"></div>
-        <div id="deityContent"></div>
-      </div>
+    <!-- DEITY PAGES (generated dynamically) -->
+    <div id="page-deity" class="page">
+      <button class="back-btn" onclick="showPage('home')">← वापस जाएं</button>
+      <div class="content-header" id="deityHeader"></div>
+      <div class="tabs" id="deityTabs"></div>
+      <div id="deityContent"></div>
     </div>
+  </div>
 
-    <footer>
-      <div
-        class="header-divider"
-        style="justify-content: center; margin-bottom: 10px"
-      >
-        <div class="divider-line" style="width: 60px"></div>
-        <div class="divider-dot"></div>
-        <div class="divider-line" style="width: 60px"></div>
-      </div>
-      ॥ जय जय श्री हरि ॥ — सभी देवी-देवताओं को समर्पित <br />
-      <span style="font-size: 0.8rem; opacity: 0.5"
-        >Divine Aarti Sangrah © 2025</span
-      >
-    </footer>
+  <footer>
+    <div class="header-divider" style="justify-content: center; margin-bottom: 10px">
+      <div class="divider-line" style="width: 60px"></div>
+      <div class="divider-dot"></div>
+      <div class="divider-line" style="width: 60px"></div>
+    </div>
+    ॥ जय जय श्री हरि ॥ — सभी देवी-देवताओं को समर्पित <br />
+    <span style="font-size: 0.8rem; opacity: 0.5">Divine Aarti Sangrah © 2025</span>
+  </footer>
 
-    <script src="data.js"></script>
-    <script src="script.js"></script>
-  </body>
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+
 </html>
